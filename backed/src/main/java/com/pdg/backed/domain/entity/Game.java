@@ -6,8 +6,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
-import org.springframework.scheduling.config.Task;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -26,7 +26,7 @@ public class Game {
     private LocalDate release;
     @CreationTimestamp
     private Instant created;
-    @CreationTimestamp
+    @UpdateTimestamp
     private Instant updated;
 
     public Game() {
