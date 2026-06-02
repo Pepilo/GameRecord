@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    user_id UUID PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    user_name VARCHAR(255) UNIQUE NOT NULL,
+    created TIMESTAMP NOT NULL,
+    updated TIMESTAMP NOT NULL
+);

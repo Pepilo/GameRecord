@@ -29,8 +29,7 @@ public class Game {
     @UpdateTimestamp
     private Instant updated;
 
-    public Game() {
-    }
+    public Game() {}
 
     public Game(String title, String imageUrl, String description, LocalDate release) {
         this.title = title;
@@ -113,7 +112,7 @@ public class Game {
     @Override
     public String toString() {
         return "Game{" + 
-            "uuid =" + gameId +
+            "gameId =" + gameId +
             ", title =" + title + '\'' +
             ", imageUrl =" + imageUrl + '\'' +
             ", description =" + description + '\'' +
