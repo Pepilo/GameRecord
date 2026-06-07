@@ -1,8 +1,9 @@
 import './App.css'
-import Home from './Home'
+import Home from './components/Home'
+import ListGroup from './components/ListGroup'
 
 function App() {
-  return <div><Home/></div>
+  return <div><ListGroup/></div>
 }
 
 export default App
