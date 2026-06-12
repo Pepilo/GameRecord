@@ -43,7 +43,7 @@ public class Game {
     }
 
     public void setGameId(UUID gameId) {
-        this.gameId= gameId;
+        this.gameId = gameId;
     }
 
     public String getTitle() {
