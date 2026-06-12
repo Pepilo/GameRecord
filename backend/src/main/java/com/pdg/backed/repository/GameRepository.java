@@ -1,4 +1,4 @@
-package com.pdg.backed.repositirory;
+package com.pdg.backed.repository;
 
 import java.util.UUID;
 

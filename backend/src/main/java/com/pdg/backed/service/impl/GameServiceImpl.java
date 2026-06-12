@@ -10,8 +10,7 @@ import com.pdg.backed.domain.CreateGameRequest;
 import com.pdg.backed.domain.UpdateGameRequest;
 import com.pdg.backed.domain.entity.Game;
 import com.pdg.backed.exception.NotFoundException;
-
-import com.pdg.backed.repositirory.GameRepository;
+import com.pdg.backed.repository.GameRepository;
 import com.pdg.backed.service.GameService;
 
 @Service

@@ -12,7 +12,7 @@ import com.pdg.backed.domain.UpdateUserRequest;
 import com.pdg.backed.domain.entity.Game;
 import com.pdg.backed.domain.entity.User;
 import com.pdg.backed.exception.NotFoundException;
-import com.pdg.backed.repositirory.UserRepository;
+import com.pdg.backed.repository.UserRepository;
 import com.pdg.backed.service.UserService;
 
 @Service
