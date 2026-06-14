@@ -8,10 +8,27 @@ type FormFields = {
 
 function RegisteForm() {
 
-    const { register, handleSubmit, formState: { errors} } = useForm<FormFields>();
+    const { register, handleSubmit, setError, formState: { errors, isSubmitting} } = useForm<FormFields>();
 
-    const onSubmit: SubmitHandler<FormFields> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<FormFields> = async (data) => {
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+            if (!response.ok) {
+                throw new Error("Request failed");
+            }
+
+            const createdUser = await response.json();
+            console.log(createdUser);
+
+        } catch (error) {
+            setError("root", {message : "Something went wrong"});
+        }
     }
 
     return(
@@ -23,7 +40,8 @@ function RegisteForm() {
             {errors.password && <div>{errors.password.message}</div>}
             <input {...register("userName", {required: "Username is required", minLength: {value: 2, message: "Username must have at least 2 characters"}, maxLength: {value: 42, message: "Username must have less than 43 characters"}})} type="text" placeholder="Username"/>
             {errors.userName && <div>{errors.userName.message}</div>}
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Loading..." : "Submit"}</button>
+            {errors.root && (<div>{errors.root.message}</div>)}
         </form>
         </>
     );
