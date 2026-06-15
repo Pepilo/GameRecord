@@ -1,7 +1,7 @@
-import Navbar from "./Navbar";
-import LinkButton from "./LinkButton";
+import Navbar from "./ui/Navbar";
+import LinkButton from "./ui/LinkButton";
 import ListGroup from "./ListGroup";
-import Alert from "./Alert";
+import Alert from "./ui/Alert";
 
 import { useState } from 'react'
 

@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Navbar from "../ui/Navbar";
 import UsersPanel from "./UsersPanel";
 
 function Admin() {

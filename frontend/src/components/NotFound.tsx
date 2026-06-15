@@ -1,4 +1,4 @@
-import LinkButton from "./LinkButton";
+import LinkButton from "./ui/LinkButton";
 
 function NotFound() {
     return (
