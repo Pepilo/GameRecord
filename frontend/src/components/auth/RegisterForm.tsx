@@ -13,15 +13,12 @@ function RegisteForm() {
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
         try {
             const response = await fetch("http://localhost:8080/api/v1/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-            if (!response.ok) {
-                throw new Error("Request failed");
-            }
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
 
             const createdUser = await response.json();
             console.log(createdUser);
