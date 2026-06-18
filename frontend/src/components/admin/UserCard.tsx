@@ -1,13 +1,26 @@
 interface Props {
+    userId: string;
     userName: string;
     email: string;
     created: string;
 }
 
-function UserCard({userName, email, created} : Props) {
+function UserCard({userId, userName, email, created} : Props) {
 
-    function handleOnClick() {
-        console.log("Do you really want to make me cry?")
+    async function handleOnClick(userId: string) {
+        try {
+            await fetch("http://localhost:8080/api/v1/users/" + userId, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+
+            console.log("User deleted");
+
+        } catch (error) {
+            console.log("Something went wrong");
+        }
     };
 
     return(
@@ -15,7 +28,7 @@ function UserCard({userName, email, created} : Props) {
             <h1>{userName}</h1>
             <div>{email}</div>
             <div>{created}</div>
-            <button onClick={() => handleOnClick()}>Delete</button>
+            <button onClick={() => handleOnClick(userId)}>Delete</button>
         </>
     );
 }

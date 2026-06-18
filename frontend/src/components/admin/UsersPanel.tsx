@@ -13,7 +13,7 @@ interface Props {
 function UsersPanel({users}: Props) {
     return (
         <>
-            {users.map((user) => (<UserCard key= {user.userId} userName={user.userName} email={user.email} created={user.created}/>))}
+            {users.map((user) => (<UserCard key= {user.userId} userId= {user.userId} userName={user.userName} email={user.email} created={user.created}/>))}
         </>
     );
 }
