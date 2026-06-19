@@ -4,12 +4,10 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.pdg.backed.domain.CreateUserRequest;
 import com.pdg.backed.domain.UpdateUserRequest;
-import com.pdg.backed.domain.entity.Game;
 import com.pdg.backed.domain.entity.User;
 import com.pdg.backed.exception.NotFoundException;
 import com.pdg.backed.repository.UserRepository;
