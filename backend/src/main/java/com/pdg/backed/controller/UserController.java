@@ -37,17 +37,17 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @PostMapping
-    public ResponseEntity<UserDto> createUser(
-        @Valid
-        @RequestBody
-        CreateUserRequestDto createUserRequestDto
-    ) {
-        CreateUserRequest createUserRequest = userMapper.fromDto(createUserRequestDto);
-        User user = userService.createUser(createUserRequest);
-        UserDto createUserDto = userMapper.toDto(user);
-        return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
-    }
+    // @PostMapping
+    // public ResponseEntity<UserDto> createUser(
+    //     @Valid
+    //     @RequestBody
+    //     CreateUserRequestDto createUserRequestDto
+    // ) {
+    //     CreateUserRequest createUserRequest = userMapper.fromDto(createUserRequestDto);
+    //     User user = userService.createUser(createUserRequest);
+    //     UserDto createUserDto = userMapper.toDto(user);
+    //     return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
+    // }
 
     @GetMapping
     public ResponseEntity<List<UserDto>> getUsers() {
