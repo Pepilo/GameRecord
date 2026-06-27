@@ -40,7 +40,7 @@ public class AuthController {
 
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@RequestBody User user) {
-        if (userRepository.findByUsername-(user.getUsername()) != null) {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
             return ResponseEntity.badRequest().body("Username is already in use");
         }
 
@@ -49,7 +49,7 @@ public class AuthController {
     }
 
     @PostMapping(path = "/login")
-    public ResponseEntity<?> login(RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
         try {
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
             if(authentication.isAuthenticated()) {
