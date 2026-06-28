@@ -6,9 +6,11 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.UuidGenerator;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -17,14 +19,24 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID userId;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false, unique = true)
     private String userName;
+
     @CreationTimestamp
+    @Column(nullable = false)
     private Instant created;
+
     @UpdateTimestamp
+    @Column(nullable = false)
     private Instant updated;
 
     public User() {}
@@ -85,17 +97,15 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if(o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (!(o instanceof User other)) return false;
 
-        User user = (User) o;
-        return Objects.equals(userId, user.userId);
+        return userId != null && userId.equals(other.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(userId);
+        return getClass().hashCode();
     }
 
     @Override
@@ -103,7 +113,6 @@ public class User {
         return "User{" + 
             "userId =" + userId +
             ", email =" + email + '\'' +
-            ", password =" + password + '\'' +
             ", userName =" + userName + '\'' +
             ", created =" + created +
             ", updated =" + updated +
