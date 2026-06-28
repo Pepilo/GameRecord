@@ -1,6 +1,6 @@
 #environment files
 .env
-.README.local.md
+README.local.md
 
 # Compiled class file
 *.class
