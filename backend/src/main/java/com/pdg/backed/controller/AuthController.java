@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,12 +18,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pdg.backed.config.JwtUtils;
+import com.pdg.backed.domain.dto.AuthResponse;
+import com.pdg.backed.domain.dto.LoginRequest;
 import com.pdg.backed.repository.UserRepository;
+import com.pdg.backed.service.AuthenticationService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(path = "api/v1/auth")
+@RequiredArgsConstructor
 @Slf4j
 public class AuthController {
 
@@ -31,12 +37,8 @@ public class AuthController {
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
 
-    public AuthController (UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtils jwtUtils, AuthenticationManager authenticationManager) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtUtils = jwtUtils;
-        this.authenticationManager = authenticationManager;
-    }
+    private final AuthenticationService authenticationService;
+
 
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@RequestBody User user) {
@@ -49,19 +51,16 @@ public class AuthController {
     }
 
     @PostMapping(path = "/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
-        try {
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-            if(authentication.isAuthenticated()) {
-                Map<String, Object> authData = new Hashmap<>();
-                authData.put("token", jwtUtils.generateToken(user.getEmail()));
-                authData.put("type", "Bearer");
-                return ResponseEntity.ok(authData);
-            }
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
-        } catch (AuthenticationException e) {
-            log.error(e.getMessage());
-        }
+        UserDetails userDetails = authenticationService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
+
+        String tokenValue = authenticationService.generateToken(userDetails);
+
+        AuthResponse authResponse = AuthResponse.builder()
+            .token(tokenValue)
+            .expiresIn(86400)
+            .build();
+        return ResponseEntity.ok(authResponse);
     }
 }

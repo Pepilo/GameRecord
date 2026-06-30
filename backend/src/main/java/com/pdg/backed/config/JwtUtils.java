@@ -20,27 +20,6 @@ import io.jsonwebtoken.security.Keys;
 @Configuration
 public class JwtUtils {
 
-    @Value("${app.secret.key}")
-    private String secretKey;
-
-    @Value("${app.expiration-time}")
-    private long expirationTime;
-
-    public String generateToken(String userName) {
-        Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userName);
-    }
-
-    private String createToken(Map<String, Object> claims, String username) {
-        return Jwts.builder()
-            .setClaims(claims)
-            .setSubject(username)
-            .setIssuedAt(new Date(System.currentTimeMillis()))
-            .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
-            .signWith(getSignKey(), SignatureAlgorithm.HS256) 
-            .compact();
-    }
-
     private Key getSignKey() {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
