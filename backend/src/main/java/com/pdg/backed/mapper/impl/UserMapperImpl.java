@@ -36,7 +36,6 @@ public class UserMapperImpl implements UserMapper {
         return new UserDto(
             user.getUserId(),
             user.getEmail(),
-            user.getPassword(),
             user.getUserName(),
             user.getCreated(),
             user.getUpdated()

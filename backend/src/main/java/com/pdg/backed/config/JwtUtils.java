@@ -15,14 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-/*RS256 needed if using auth as a microservice */
-
 @Configuration
 public class JwtUtils {
-
-    private Key getSignKey() {
-        return Keys.hmacShaKeyFor(secretKey.getBytes());
-    }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         String userName = extractUsername(token);

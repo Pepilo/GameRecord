@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pdg.backed.config.JwtUtils;
 import com.pdg.backed.domain.dto.AuthResponse;
 import com.pdg.backed.domain.dto.LoginRequest;
 import com.pdg.backed.repository.UserRepository;
@@ -34,21 +33,18 @@ public class AuthController {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtUtils jwtUtils;
-    private final AuthenticationManager authenticationManager;
-
     private final AuthenticationService authenticationService;
 
 
-    @PostMapping(path = "/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
-        if (userRepository.findByUsername(user.getUsername()) != null) {
-            return ResponseEntity.badRequest().body("Username is already in use");
-        }
+    // @PostMapping(path = "/register")
+    // public ResponseEntity<?> register(@RequestBody User user) {
+    //     if (userRepository.findByUsername(user.getUsername()) != null) {
+    //         return ResponseEntity.badRequest().body("Username is already in use");
+    //     }
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return ResponseEntity.ok(userRepository.save(user));
-    }
+    //     user.setPassword(passwordEncoder.encode(user.getPassword()));
+    //     return ResponseEntity.ok(userRepository.save(user));
+    // }
 
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
