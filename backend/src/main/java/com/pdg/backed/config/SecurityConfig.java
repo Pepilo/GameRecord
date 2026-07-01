@@ -46,7 +46,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.POST, "/api/v1/auth/*").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/auth").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
                 .anyRequest().authenticated()
             )
             .csrf(AbstractHttpConfigurer::disable)

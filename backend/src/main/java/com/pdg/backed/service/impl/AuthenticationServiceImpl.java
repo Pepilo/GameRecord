@@ -27,7 +27,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
 
-    @Value("${app.secret.key}")
+    @Value("${app.secret-key}")
     private String secretKey;
 
     @Value("${app.expiration-time}")
