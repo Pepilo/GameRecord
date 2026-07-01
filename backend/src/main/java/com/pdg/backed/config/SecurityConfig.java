@@ -15,16 +15,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    // private final CustomUserDetailsService customUserDetailsService;
-    // private final JwtUtils jwtUtils;
-    // private final JwtFilter jwtFilter;
-
-    // public SecurityConfig (CustomUserDetailsService customUserDetailsService, JwtUtils jwtUtils, JwtFilter jwtFilter) {
-    //     this. customUserDetailsService = customUserDetailsService;
-    //     this.jwtUtils = jwtUtils;
-    //     this.jwtFilter = jwtFilter;
-    // }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();

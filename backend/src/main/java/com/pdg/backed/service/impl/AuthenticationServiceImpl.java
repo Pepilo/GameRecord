@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.pdg.backed.service.AuthenticationService;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -49,11 +50,26 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             .setSubject(userDetails.getUsername())
             .setIssuedAt(new Date(System.currentTimeMillis()))
             .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
-            .signWith(getSignKey(), SignatureAlgorithm.HS256) 
+            .signWith(getSigningKey(), SignatureAlgorithm.HS256) 
             .compact();
     }
 
-    private Key getSignKey() {
+    @Override
+    public UserDetails validateToken(String token) {
+        String username = extractUsername(token);
+        return userDetailsService.loadUserByUsername(username);
+    }
+
+    private String extractUsername(String token) {
+        Claims claims = Jwts.parserBuilder()
+            .setSigningKey(getSigningKey())
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
+        return claims.getSubject();
+    }
+
+    private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 }
