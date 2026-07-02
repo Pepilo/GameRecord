@@ -1,4 +1,4 @@
-package com.pdg.backed.domain;
+package com.pdg.backed.domain.game;
 
 import java.time.LocalDate;
 

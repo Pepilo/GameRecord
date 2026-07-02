@@ -4,7 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.pdg.backed.domain.entity.User;
+import com.pdg.backed.domain.user.entity.User;
 import com.pdg.backed.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;

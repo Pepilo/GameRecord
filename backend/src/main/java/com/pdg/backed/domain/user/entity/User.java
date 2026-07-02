@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.entity;
+package com.pdg.backed.domain.user.entity;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.pdg.backed.domain.review.entity.Review;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

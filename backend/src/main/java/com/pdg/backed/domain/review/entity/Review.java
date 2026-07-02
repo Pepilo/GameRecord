@@ -1,10 +1,12 @@
-package com.pdg.backed.domain.entity;
+package com.pdg.backed.domain.review.entity;
 
 import java.time.Instant;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.pdg.backed.domain.user.entity.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +40,7 @@ public class Review {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author.id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = false)
     private User author;
 
     @CreationTimestamp

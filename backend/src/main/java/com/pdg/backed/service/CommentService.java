@@ -3,9 +3,9 @@ package com.pdg.backed.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.pdg.backed.domain.CreateCommentRequest;
-import com.pdg.backed.domain.UpdateCommentRequest;
-import com.pdg.backed.domain.entity.Comment;
+import com.pdg.backed.domain.comment.CreateCommentRequest;
+import com.pdg.backed.domain.comment.UpdateCommentRequest;
+import com.pdg.backed.domain.comment.entity.Comment;
 
 public interface CommentService {
 

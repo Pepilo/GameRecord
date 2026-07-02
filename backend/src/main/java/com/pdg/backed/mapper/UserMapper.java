@@ -1,11 +1,11 @@
 package com.pdg.backed.mapper;
 
-import com.pdg.backed.domain.CreateUserRequest;
-import com.pdg.backed.domain.UpdateUserRequest;
-import com.pdg.backed.domain.dto.CreateUserRequestDto;
-import com.pdg.backed.domain.dto.UpdateUserRequestDto;
-import com.pdg.backed.domain.dto.UserDto;
-import com.pdg.backed.domain.entity.User;
+import com.pdg.backed.domain.user.CreateUserRequest;
+import com.pdg.backed.domain.user.UpdateUserRequest;
+import com.pdg.backed.domain.user.dto.CreateUserRequestDto;
+import com.pdg.backed.domain.user.dto.UpdateUserRequestDto;
+import com.pdg.backed.domain.user.dto.UserDto;
+import com.pdg.backed.domain.user.entity.User;
 
 public interface UserMapper {
 

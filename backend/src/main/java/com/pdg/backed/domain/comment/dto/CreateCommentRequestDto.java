@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.dto;
+package com.pdg.backed.domain.comment.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

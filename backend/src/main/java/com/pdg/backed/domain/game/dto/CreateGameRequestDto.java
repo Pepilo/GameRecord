@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.dto;
+package com.pdg.backed.domain.game.dto;
 
 import java.time.LocalDate;
 
@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record UpdateGameRequestDto(
+public record CreateGameRequestDto(
     @NotBlank(message = ERROR_MESSAGE_TITLE_LENGTH)
     @Length(max = 255, message = ERROR_MESSAGE_TITLE_LENGTH)
     String title,

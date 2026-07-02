@@ -6,9 +6,9 @@ import java.util.UUID;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.pdg.backed.domain.CreateUserRequest;
-import com.pdg.backed.domain.UpdateUserRequest;
-import com.pdg.backed.domain.entity.User;
+import com.pdg.backed.domain.user.CreateUserRequest;
+import com.pdg.backed.domain.user.UpdateUserRequest;
+import com.pdg.backed.domain.user.entity.User;
 import com.pdg.backed.exception.NotFoundException;
 import com.pdg.backed.repository.UserRepository;
 import com.pdg.backed.service.UserService;

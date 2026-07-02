@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.entity;
+package com.pdg.backed.domain.comment.entity;
 
 import java.time.Instant;
 import java.util.Objects;

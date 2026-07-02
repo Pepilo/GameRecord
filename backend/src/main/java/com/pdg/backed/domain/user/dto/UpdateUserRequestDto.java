@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.dto;
+package com.pdg.backed.domain.user.dto;
 
 import org.hibernate.validator.constraints.Length;
 

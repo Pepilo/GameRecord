@@ -1,11 +1,11 @@
 package com.pdg.backed.mapper;
 
-import com.pdg.backed.domain.CreateGameRequest;
-import com.pdg.backed.domain.UpdateGameRequest;
-import com.pdg.backed.domain.dto.CreateGameRequestDto;
-import com.pdg.backed.domain.dto.GameDto;
-import com.pdg.backed.domain.dto.UpdateGameRequestDto;
-import com.pdg.backed.domain.entity.Game;
+import com.pdg.backed.domain.game.CreateGameRequest;
+import com.pdg.backed.domain.game.UpdateGameRequest;
+import com.pdg.backed.domain.game.dto.CreateGameRequestDto;
+import com.pdg.backed.domain.game.dto.GameDto;
+import com.pdg.backed.domain.game.dto.UpdateGameRequestDto;
+import com.pdg.backed.domain.game.entity.Game;
 
 public interface GameMapper {
 

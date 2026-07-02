@@ -1,4 +1,4 @@
-package com.pdg.backed.domain.dto;
+package com.pdg.backed.domain.game.dto;
 
 import java.time.Instant;
 import java.time.LocalDate;

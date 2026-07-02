@@ -3,9 +3,9 @@ package com.pdg.backed.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.pdg.backed.domain.CreateUserRequest;
-import com.pdg.backed.domain.UpdateUserRequest;
-import com.pdg.backed.domain.entity.User;
+import com.pdg.backed.domain.user.CreateUserRequest;
+import com.pdg.backed.domain.user.UpdateUserRequest;
+import com.pdg.backed.domain.user.entity.User;
 
 public interface UserService {
 

@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pdg.backed.domain.CreateCommentRequest;
-import com.pdg.backed.domain.UpdateCommentRequest;
-import com.pdg.backed.domain.dto.CommentDto;
-import com.pdg.backed.domain.dto.CreateCommentRequestDto;
+import com.pdg.backed.domain.comment.CreateCommentRequest;
+import com.pdg.backed.domain.comment.UpdateCommentRequest;
+import com.pdg.backed.domain.comment.dto.CommentDto;
+import com.pdg.backed.domain.comment.dto.CreateCommentRequestDto;
+import com.pdg.backed.domain.comment.entity.Comment;
 import com.pdg.backed.domain.dto.UpdateCommentRequestDto;
-import com.pdg.backed.domain.entity.Comment;
 import com.pdg.backed.mapper.CommentMapper;
 import com.pdg.backed.service.CommentService;
 
