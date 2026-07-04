@@ -11,6 +11,8 @@ public interface UserService {
 
     User createUser(CreateUserRequest request);
 
+    User getUserById(UUID userId);
+
     List<User> getUsers();
 
     User updateUser(UUID userId, UpdateUserRequest request);

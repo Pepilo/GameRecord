@@ -13,6 +13,8 @@ import com.pdg.backed.exception.NotFoundException;
 import com.pdg.backed.repository.UserRepository;
 import com.pdg.backed.service.UserService;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -31,6 +33,12 @@ public class UserServiceImpl implements UserService {
         );
 
         return userRepository.save(user);
+    }
+
+    @Override
+    public User getUserById(UUID userId)
+    {
+        return userRepository.findById(userId).orElseThrow(() -> new EntityNotFoundException("User not found with id " + userId));
     }
 
     @Override

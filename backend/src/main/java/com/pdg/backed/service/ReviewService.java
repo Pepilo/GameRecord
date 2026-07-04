@@ -5,10 +5,11 @@ import java.util.UUID;
 
 import com.pdg.backed.domain.review.CreateReviewRequest;
 import com.pdg.backed.domain.review.entity.Review;
+import com.pdg.backed.domain.user.entity.User;
 
 public interface ReviewService {
 
-    Review createReview(CreateReviewRequest request);
+    Review createReview(User user, CreateReviewRequest request);
 
     List<Review> getReviews();
 
