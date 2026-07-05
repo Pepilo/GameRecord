@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,6 @@ import com.pdg.backed.domain.review.dto.CreateReviewRequestDto;
 import com.pdg.backed.domain.review.dto.ReviewDto;
 import com.pdg.backed.domain.review.dto.UpdateReviewRequestDto;
 import com.pdg.backed.domain.review.entity.Review;
-import com.pdg.backed.domain.user.dto.UserDto;
 import com.pdg.backed.domain.user.entity.User;
 import com.pdg.backed.mapper.ReviewMapper;
 import com.pdg.backed.service.ReviewService;
@@ -69,5 +69,13 @@ public class ReviewController {
         Review review = reviewService.updateReview(reviewId, updateReviewRequest);
         ReviewDto reviewDto = reviewMapper.toDto(review);
         return ResponseEntity.ok(reviewDto);
+    }
+
+    @DeleteMapping(path = "/{reviewId}")
+    public ResponseEntity<Void> deleteReview(
+        @PathVariable UUID reviewId
+    ) {
+        reviewService.deleteReview(reviewId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

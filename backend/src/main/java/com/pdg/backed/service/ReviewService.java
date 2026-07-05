@@ -16,5 +16,5 @@ public interface ReviewService {
 
     Review updateReview(UUID reviewId, UpdateReviewRequest request);
 
-    // void deleteReview(UUID reviewId);
+    void deleteReview(UUID reviewId);
 }
