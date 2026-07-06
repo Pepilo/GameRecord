@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.pdg.backed.domain.user.CreateUserRequest;
@@ -19,16 +20,18 @@ import jakarta.persistence.EntityNotFoundException;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public User createUser(CreateUserRequest request) {
         User user = new User(
             request.email(),
-            request.password(),
+            passwordEncoder.encode(request.password()),
             request.userName()
         );
 
@@ -51,7 +54,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException(userId));
 
         user.setEmail(request.email());
-        user.setPassword(request.password());
+        user.setPassword(passwordEncoder.encode(request.password()));
         user.setUserName(request.userName());
 
         return userRepository.save(user);
