@@ -17,7 +17,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +24,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "reviews")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Review {
@@ -51,6 +49,12 @@ public class Review {
     @Column(nullable = false)
     private Instant updated;
 
+    public Review(String title, String content, User author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,7 +72,7 @@ public class Review {
     public String toString() {
         return "Review{" +
                 "reviewId=" + reviewId +
-                ", title='" + title + '\'' +
+                ", title= '" + title + '\'' +
                 ", created=" + created +
                 ", updated=" + updated +
                 '}';

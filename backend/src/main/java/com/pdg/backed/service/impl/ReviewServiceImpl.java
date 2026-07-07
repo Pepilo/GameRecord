@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.pdg.backed.domain.review.CreateReviewRequest;
 import com.pdg.backed.domain.review.UpdateReviewRequest;
 import com.pdg.backed.domain.review.entity.Review;
+import com.pdg.backed.domain.user.CreateUserRequest;
 import com.pdg.backed.domain.user.entity.User;
 import com.pdg.backed.exception.NotFoundException;
 import com.pdg.backed.repository.ReviewRepository;
@@ -24,10 +25,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review createReview(User user, CreateReviewRequest request) {
-        Review review = new Review();
-        review.setTitle(request.title());
-        review.setContent(request.content());
-        review.setAuthor(user);
+        Review review = new Review(
+            request.title(),
+            request.content(),
+            user
+        );
 
         return reviewRepository.save(review);
     }

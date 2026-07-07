@@ -18,9 +18,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -47,60 +53,10 @@ public class User {
     @Column(nullable = false)
     private Instant updated;
 
-    public User() {}
-
     public User(String email, String password, String userName) {
         this.email = email;
         this.password = password;
         this.userName = userName;
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-        public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
-
-    public Instant getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Instant updated) {
-        this.updated = updated;
     }
 
     @Override
@@ -120,8 +76,8 @@ public class User {
     public String toString() {
         return "User{" + 
             "userId =" + userId +
-            ", email =" + email + '\'' +
-            ", userName =" + userName + '\'' +
+            ", email = '" + email + '\'' +
+            ", userName = '" + userName + '\'' +
             ", created =" + created +
             ", updated =" + updated +
             '}';

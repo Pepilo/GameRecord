@@ -24,18 +24,15 @@ import com.pdg.backed.mapper.UserMapper;
 import com.pdg.backed.service.UserService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "api/v1/users")
 public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
-
-    public UserController (UserService userService, UserMapper userMapper){
-        this.userService = userService;
-        this.userMapper = userMapper;
-    }
 
     @PostMapping
     public ResponseEntity<UserDto> createUser(
