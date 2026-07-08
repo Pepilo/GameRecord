@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(path = "api/v1/auth")
+@RequestMapping(path = "/api/v1/auth")
 @RequiredArgsConstructor
 @Slf4j
 public class AuthController {

@@ -1,11 +1,11 @@
 import Navbar from "../ui/Navbar";
-import RegisteForm from "./RegisterForm";
+import RegisterForm from "./RegisterForm";
 
 function Register() {
     return (
         <>
             <Navbar firstButtonLabel="Se Connecter" secondButtonLabel="Accueil" firstButtonLink="login" secondButtonLink="/"></Navbar>
-            <RegisteForm></RegisteForm>
+            <RegisterForm></RegisterForm>
         </>
     );
 }
