@@ -40,7 +40,7 @@ public class GameMapperImpl implements GameMapper {
             game.getTitle(),
             game.getImageUrl(),
             game.getDescription(),
-            game.getRelease(),
+            game.getReleased(),
             game.getCreated(),
             game.getUpdated()
         );
