@@ -12,9 +12,9 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 #JWT
-app.secret-key=fZgdKuqpcLZw5QDQSmv8uTpsfkmTmc5bUoqydrCX3A2
+app.secret-key=mysupersecretkey
 app.expiration-time=86400000
 
 #RAWG
-rawg.api.key=57bed58d50444c48992cf6afb9c1b31b
+rawg.api.key=mysupersecretkey
 rawg.api.url=https://api.rawg.io/api
