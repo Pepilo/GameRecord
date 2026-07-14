@@ -4,6 +4,7 @@ import ListGroup from "./ListGroup";
 import Alert from "./ui/Alert";
 
 import { useState } from 'react'
+import RawgGameMainList from "./rawg/RawgGameMainList";
 
 const backlog = [
   "Red dead redemption 2",
@@ -34,6 +35,7 @@ function Home() {
           <ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/>
           <LinkButton onClick={() => setAlertVisible(true)}>Se connecter</LinkButton>
           {alertVisible && <Alert onClick={() => setAlertVisible(false)}> Hello World!</Alert>}
+          <RawgGameMainList/>
       </>
   );
 }

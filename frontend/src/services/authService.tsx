@@ -18,7 +18,7 @@ export async function login(email : string, password : string): Promise<AuthResp
 
 
     if (!response.ok) {
-        throw new Error("Erreur d'authentification");
+        throw new Error("Authentification error");
     }
 
 
