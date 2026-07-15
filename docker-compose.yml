@@ -1,4 +1,14 @@
 services:
+
+  #FRONTEND
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - gameRecord-network
+
   #DATABASE
   database:
     image: postgres:18

@@ -31,8 +31,8 @@ function Home() {
   return (
       <>
           <Navbar firstButtonLabel="Se Connecter" secondButtonLabel= "S'inscrire" firstButtonLink="login" secondButtonLink="register"></Navbar>
-          <ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/>
-          <ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/>
+          {/* <ListGroup games={backlog} heading="Backlog" onSelectGame={handleSelectGame}/>
+          <ListGroup games={wishlist} heading="Wishlist" onSelectGame={handleSelectGame}/> */}
           <LinkButton onClick={() => setAlertVisible(true)}>Se connecter</LinkButton>
           {alertVisible && <Alert onClick={() => setAlertVisible(false)}> Hello World!</Alert>}
           <RawgGameMainList/>
