@@ -9,6 +9,17 @@ services:
     networks:
       - gameRecord-network
 
+  #BACKEND
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - gameRecord-network
+
   #DATABASE
   database:
     image: postgres:18
