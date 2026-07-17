@@ -1,10 +1,8 @@
 package com.pdg.backed.service;
 
-import java.util.List;
-
-import com.pdg.backed.domain.rawgGame.dto.RawgGameDto;
+import com.pdg.backed.domain.rawgGame.dto.RawgGamesResponseDto;
 
 public interface RawgService {
 
-    List<RawgGameDto> getRawgGames();
+    RawgGamesResponseDto getRawgGames(int page);
 }

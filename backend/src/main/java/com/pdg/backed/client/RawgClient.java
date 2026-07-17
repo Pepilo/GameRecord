@@ -19,13 +19,14 @@ public class RawgClient {
         this.apiKey = apiKey;
     }
 
-    public RawgGamesResponseDto getRawgGames() {
+    public RawgGamesResponseDto getRawgGames(int page) {
 
         return restClient.get()
                 .uri(uriBuilder -> uriBuilder
                     .path("/games")
                     .queryParam("key", apiKey)
                     .queryParam("page_size", 20)
+                    .queryParam("page", page)
                     .build())
                 .retrieve()
                 .body(RawgGamesResponseDto.class);
