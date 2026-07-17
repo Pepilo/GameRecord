@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRawgGames } from "../../services/rawgService";
+import "./RawgGameMainList.css";
 
 interface RawgGame {
     id: number;
@@ -27,6 +28,7 @@ function RawgGameMainList() {
                     <img 
                         src={game.background_image}
                         alt={game.name}
+                        className="game-image"
                     />
                     <p>{game.released}</p>
                 </div>
