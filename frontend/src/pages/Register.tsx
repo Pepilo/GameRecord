@@ -1,5 +1,5 @@
-import Navbar from "../ui/Navbar";
-import RegisterForm from "./RegisterForm";
+import Navbar from "../components/ui/Navbar";
+import RegisterForm from "../components/auth/RegisterForm";
 
 function Register() {
     return (

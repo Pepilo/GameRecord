@@ -1,5 +1,5 @@
-import Navbar from "../ui/Navbar";
-import LoginForm from "./LoginForm"
+import Navbar from "../components/ui/Navbar";
+import LoginForm from "../components/auth/LoginForm"
 
 function Login() {
     return (

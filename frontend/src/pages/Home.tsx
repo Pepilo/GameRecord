@@ -1,10 +1,10 @@
-import Navbar from "./ui/Navbar";
-import LinkButton from "./ui/LinkButton";
-import ListGroup from "./ListGroup";
-import Alert from "./ui/Alert";
+import Navbar from "../components/ui/Navbar";
+import LinkButton from "../components/ui/LinkButton";
+import ListGroup from "../components/ListGroup";
+import Alert from "../components/ui/Alert";
 
 import { useState } from 'react'
-import RawgGameMainList from "./rawg/RawgGameMainList";
+import RawgGameMainList from "../components/rawg/RawgGameMainList";
 
 const backlog = [
   "Red dead redemption 2",

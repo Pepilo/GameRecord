@@ -1,5 +1,5 @@
-import Navbar from "../ui/Navbar";
-import UsersPanel from "./UsersPanel";
+import Navbar from "../components/ui/Navbar";
+import UsersPanel from "../components/admin/UsersPanel";
 import { useEffect, useState } from "react";
 
 interface User {
