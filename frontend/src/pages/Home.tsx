@@ -1,5 +1,6 @@
 import Navbar from "../components/ui/Navbar";
 import LinkButton from "../components/ui/LinkButton";
+import Arrow from "../components/ui/Arrow";
 import ListGroup from "../components/ListGroup";
 import Alert from "../components/ui/Alert";
 
@@ -36,6 +37,7 @@ function Home() {
           <LinkButton onClick={() => setAlertVisible(true)}>Se connecter</LinkButton>
           {alertVisible && <Alert onClick={() => setAlertVisible(false)}> Hello World!</Alert>}
           <RawgGameMainList/>
+          <Arrow></Arrow>
       </>
   );
 }
