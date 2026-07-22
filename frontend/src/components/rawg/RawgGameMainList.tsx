@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRawgGames } from "../../services/rawgService";
+import Arrow from "./../ui/Arrow"
 import "./RawgGameMainList.css";
 
 interface RawgGame {
@@ -12,17 +13,34 @@ interface RawgGame {
     tba: boolean;
 }
 
+interface RawgGamesResponse {
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results: RawgGame[];
+}
+
 function RawgGameMainList() {
 
-    const [games, setGames] = useState<RawgGame[]>([]);
+    const [rawgResponse, setRawgResponse] = useState<RawgGamesResponse | null>(null);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
-        getRawgGames().then(setGames);
-    }, []);
+        getRawgGames(page).then(data => {
+            setRawgResponse(data);
+        });
+    }, [page]);
+
+    const changePage = (newPage: number) => {
+        console.log("Nouvelle page :", newPage);
+
+        if (newPage < 1) return;
+        setPage(newPage);
+    };
 
     return(
         <>
-            {games.map(game => (
+            {rawgResponse?.results.map(game => (
                 <div key={game.id}>
                     <h2>{game.name}</h2>
                     <img 
@@ -33,6 +51,10 @@ function RawgGameMainList() {
                     <p>{game.released}</p>
                 </div>
             ))}
+            <Arrow direction="double-left" onClick={() => changePage(page - 10)}></Arrow>
+            <Arrow direction="left" onClick={() => changePage(page - 1)}></Arrow>
+            <Arrow direction="right" onClick={() => changePage(page + 1)}></Arrow>
+            <Arrow direction ="double-right" onClick={() => changePage(page + 10)}></Arrow>
         </>
     );
 }

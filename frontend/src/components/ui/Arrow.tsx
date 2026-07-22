@@ -1,11 +1,12 @@
 interface Props {
-    direction?: "rigth" | "left" | "double-rigth" | "double-left";
+    direction?: "right" | "left" | "double-right" | "double-left";
+    onClick: () => void;
 }
 
-function Arrow ({direction = "rigth"} : Props) {
+function Arrow ({direction = "right", onClick} : Props) {
     return(
         <>
-            <button className={"chevron-" + direction}></button>
+            <button className={"bi bi-chevron-" + direction} onClick={onClick}></button>
         </>
     );
 }

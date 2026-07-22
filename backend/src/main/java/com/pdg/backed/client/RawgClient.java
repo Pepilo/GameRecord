@@ -21,7 +21,7 @@ public class RawgClient {
 
     public RawgGamesResponseDto getRawgGames(int page) {
 
-        return restClient.get()
+        RawgGamesResponseDto response = restClient.get()
                 .uri(uriBuilder -> uriBuilder
                     .path("/games")
                     .queryParam("key", apiKey)
@@ -30,5 +30,10 @@ public class RawgClient {
                     .build())
                 .retrieve()
                 .body(RawgGamesResponseDto.class);
+
+        System.out.println("Page demandée : " + page);
+        System.out.println("Premier jeu : " + response.results().get(0).title());
+
+        return response;
     }
 }
