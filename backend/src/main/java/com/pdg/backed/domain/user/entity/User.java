@@ -2,6 +2,7 @@ package com.pdg.backed.domain.user.entity;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,6 +45,9 @@ public class User {
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Collection> collections = new ArrayList<>();
 
     @CreationTimestamp
     @Column(nullable = false)

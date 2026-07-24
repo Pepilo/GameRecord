@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.pdg.backed.domain.review.CreateReviewRequest;
 import com.pdg.backed.domain.review.UpdateReviewRequest;
 import com.pdg.backed.domain.review.entity.Review;
-import com.pdg.backed.domain.user.CreateUserRequest;
 import com.pdg.backed.domain.user.entity.User;
 import com.pdg.backed.exception.NotFoundException;
 import com.pdg.backed.repository.ReviewRepository;

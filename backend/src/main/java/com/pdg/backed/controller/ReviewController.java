@@ -63,9 +63,9 @@ public class ReviewController {
     public ResponseEntity<ReviewDto> updateReview(
         @PathVariable UUID reviewId,
         @Valid
-        @RequestBody UpdateReviewRequestDto uReviewRequestDto
+        @RequestBody UpdateReviewRequestDto updateReviewRequestDto
     ) {
-        UpdateReviewRequest updateReviewRequest = reviewMapper.fromDto(uReviewRequestDto);
+        UpdateReviewRequest updateReviewRequest = reviewMapper.fromDto(updateReviewRequestDto);
         Review review = reviewService.updateReview(reviewId, updateReviewRequest);
         ReviewDto reviewDto = reviewMapper.toDto(review);
         return ResponseEntity.ok(reviewDto);

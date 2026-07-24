@@ -1,9 +1,11 @@
-package com.pdg.backed.domain.review.dto;
+package com.pdg.backed.domain.collection.dto;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 import com.pdg.backed.domain.dto.AuthorDto;
+import com.pdg.backed.domain.game.entity.Game;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,11 +16,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ReviewDto {
+public class CollectionDto {
 
-    private UUID reviewId;
+    private UUID collectionId;
     private String title;
-    private String content;
+    private List<Game> content;
     private AuthorDto author;
     private Instant created;
     private Instant updated;
